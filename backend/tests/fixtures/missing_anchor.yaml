@@ -1,0 +1,18 @@
+# Same as valid_question.yaml, but the first criterion is missing its 3 anchor.
+# Must be rejected at load time.
+id: beh-verification-01
+type: behavioral
+prompt: "Tell me about a time you found a significant error in your own work."
+tags: [ownership, rigor]
+time_budget_s: 240
+max_probes: 2
+probes:
+  - trigger: "doesn't explain how the error was detected"
+    ask: "What made you think to check?"
+rubric:
+  - criterion: detection_process
+    weight: 2
+    anchors:
+      1: "Error found by luck or by someone else"
+      5: "Deliberate independent verification, explains why that source"
+rubric_version: 1
